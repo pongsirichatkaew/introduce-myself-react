@@ -1,0 +1,9 @@
+.MainPage {
+    margin-top: 64px;
+    display: flex;
+    min-height: 200vh;
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  

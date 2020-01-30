@@ -1,0 +1,1 @@
+export { scrollToNewSection } from './navbar';

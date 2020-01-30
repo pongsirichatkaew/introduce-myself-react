@@ -1,0 +1,60 @@
+.Skills {
+    background-color: #eee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    min-height: 100vh;
+}
+
+/* แถบขาวตอนโทรสับ */
+.Full {
+    width: 100%;
+}
+
+.TextHeader{
+    text-align: center;
+    text-decoration: underline;
+    font-size: 1.8em;
+    color: #1C2541;
+}
+
+.Text {
+    margin-left: 16px;
+    margin-right: 16px;
+    text-align: center;
+    font-size: 1em;
+    color: #1C2541;
+}
+.TextSkill {
+    margin-right: 10%;
+    text-align: end;
+    font-size: 1em;
+    color: #1C2541;
+}
+.Progress{
+    padding-right: 25%;
+}
+
+@media (max-width: 499px) {
+    .Text {
+        padding: 8px;
+        margin-left: 0;
+        margin-right: 16px;
+        font-size: 24px;
+        color: #1C2541;
+    }
+
+    .TextSkill {
+        margin-right: 8px;
+        text-align: center;
+        font-size: 24px;
+        color: #1C2541;
+    }
+    .Progress{
+        padding-right: 8px;
+    }
+  }
