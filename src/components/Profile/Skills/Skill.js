@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import classes from './Skill.module.css';
-import { connect } from 'react-redux';
 
 import { Row, Col, Progress } from 'antd';
 
@@ -115,10 +114,5 @@ class Skills extends Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    animated: state.navbar.animated
-  };
-};
 
-export default connect(mapStateToProps, null)(Skills);
+export default Skills;

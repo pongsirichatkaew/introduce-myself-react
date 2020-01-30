@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import classes from './MainPage.module.css';
+import { connect } from 'react-redux';
+
 import MainProfile from '../components/Profile/MainProfile/MainProfile';
 import Aboutme from '../components/Profile/Aboutme/Aboutme';
 import Skills from '../components/Profile/Skills/Skill';
@@ -59,19 +61,25 @@ class MainPage extends Component {
           githubClicked={this.githubClickedHandler}
           facebookClicked={this.facebookClickedHandler}
           mailClicked={this.mailClickedHandler}
+          animated={this.props.animated}
         />
         <Aboutme
           githubClicked={this.githubClickedHandler}
           facebookClicked={this.facebookClickedHandler}
           mailClicked={this.mailClickedHandler}
           lineClicked={this.lineClickedHandler}
+          animated={this.props.animated}
         />
-        <Skills />
-        <Portfolio />
+        <Skills animated={this.props.animated} />
+        <Portfolio animated={this.props.animated} />
         <ContactDetail contactDetail={this.state.contactDetail} />
       </div>
     );
   }
 }
-
-export default MainPage;
+const mapStateToProps = state => {
+  return {
+    animated: state.navbar.animated
+  };
+};
+export default connect(mapStateToProps, null)(MainPage);

@@ -1,0 +1,18 @@
+.card {
+  background-color: white;
+  box-shadow: 0 4px 8px 0;
+  transition: 0.3s;
+  width: 300px;
+  min-height: 150px;
+
+}
+
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 white;
+  opacity: 1;
+}
+
+.container {
+  padding: 2px 16px;
+}

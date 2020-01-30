@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import classes from './MainProfile.module.css';
 import srcImage from '../../../assets/images/images.png';
 import { Button, Row, Col } from 'antd';
-import { connect } from 'react-redux';
 
 class MainPage extends Component {
   componentDidUpdate() {
@@ -82,10 +81,5 @@ class MainPage extends Component {
     );
   }
 }
-const mapStateToProps = state => {
-  return {
-    animated: state.navbar.animated
-  };
-};
 
-export default connect(mapStateToProps, null)(MainPage);
+export default MainPage;

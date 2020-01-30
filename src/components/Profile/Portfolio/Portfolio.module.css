@@ -1,11 +1,27 @@
 .Portfolio {
-    background-color: #0b132b;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding-top: 64px;
-    padding-bottom: 64px;
-    min-height: 100vh;
-  }
+  background-color: #0b132b;
+  padding-top: 64px;
+  padding-bottom: 64px;
+  min-height: 100vh;
+}
+
+.CenterCard {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.BtnGroup{
+  margin-left: 5%;
+  margin-bottom: 32px;
+}
+
+.TextHeader{
+  font-size: 1.8em;
+  color: white;
+  padding-left: 1em;
+  padding-right: 1em;
+  text-decoration: underline  ;
+}

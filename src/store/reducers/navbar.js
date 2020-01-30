@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 const initialState = {
   selectedKey: '1',
-  animated: { main: true, about: false, skills: false }
+  animated: { main: true, about: false, skills: false, portfolio: false }
 };
 
 const reducer = (state = initialState, action) => {
@@ -14,6 +14,8 @@ const reducer = (state = initialState, action) => {
         newAnimated.about = true;
       } else if (action.selectedKey === '3') {
         newAnimated.skills = true;
+      } else if (action.selectedKey === '4') {
+        newAnimated.portfolio = true;
       }
       const newSelectedKey = {
         ...state,

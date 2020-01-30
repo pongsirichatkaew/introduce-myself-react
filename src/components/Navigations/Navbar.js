@@ -15,9 +15,6 @@ class Navbar extends Component {
     });
   };
 
-  componentDidUpdate() {
-    console.log(`[Navbar] rendering`);
-  }
 
   render() {
     return (

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import classes from './Aboutme.module.css';
 import { Row, Col } from 'antd';
-import { connect } from 'react-redux';
 import Experience from '../Experience/Experinece';
 class Aboutme extends Component {
   componentDidUpdate() {
@@ -65,10 +64,4 @@ class Aboutme extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    animated: state.navbar.animated
-  };
-};
-
-export default connect(mapStateToProps, null)(Aboutme);
+export default Aboutme;
