@@ -1,9 +1,23 @@
-.SpanClicked {
-    margin-left: 32px;
-  }
-  .SpanClicked:hover {
-    color: black;
-    background-color: white;
-    border: 1px solid black;
-    cursor: pointer;
-  }
+.Container {
+  background-color: #3A506B;
+  min-height: 7vh;
+  /* display: flex;
+  justify-content: center;
+  align-content: space-between;
+  align-items: center; */
+  color: white;
+}
+
+.ContactItem{
+  margin-left: 32px;
+}
+.SpanClicked{
+  margin-left: 8px;
+}
+.SpanClicked:hover {
+  color: black;
+  background-color: #ccc;
+  border: 1px solid black;
+  cursor: pointer;
+}
+

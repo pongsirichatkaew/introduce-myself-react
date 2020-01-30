@@ -3,32 +3,35 @@ import classes from './MainPage.module.css';
 import MainProfile from '../components/Profile/MainProfile/MainProfile';
 import Aboutme from '../components/Profile/Aboutme/Aboutme';
 import Skills from '../components/Profile/Skills/Skill';
+import Portfolio from '../components/Profile/Portfolio/Portfolio';
+import ContactDetail from '../components/Profile/ContactDetail/ContactDetail';
 class MainPage extends Component {
   state = {
     contactDetail: [
       {
         icon: ['fas', 'mobile-alt'],
-        detail: '061-4129476 (Bank)'
+        detail: '061-4129476 (Bank)',
+        clicked: () => {}
       },
       {
         icon: ['far', 'paper-plane'],
         detail: 'pongsiri.cha@hotmail.com',
-        clicked: this.props.mailClicked
+        clicked: () => this.mailClickedHandler()
       },
       {
         icon: ['fab', 'facebook-square'],
         detail: 'bank.chatkaew',
-        clicked: this.props.facebookClicked
+        clicked: () => this.facebookClickedHandler()
       },
       {
         icon: ['fab', 'github'],
         detail: 'pongsirichatkaew',
-        clicked: this.props.githubClicked
+        clicked: () => this.githubClickedHandler()
       },
       {
         icon: ['fab', 'line'],
         detail: 'pc.bank',
-        clicked: this.props.lineClicked
+        clicked: () => this.lineClickedHandler()
       }
     ]
   };
@@ -64,6 +67,8 @@ class MainPage extends Component {
           lineClicked={this.lineClickedHandler}
         />
         <Skills />
+        <Portfolio />
+        <ContactDetail contactDetail={this.state.contactDetail} />
       </div>
     );
   }

@@ -15,16 +15,26 @@ class Layout extends Component {
   handleScroll = event => {
     const about = $('#about').offset().top;
     const skills = $('#skills').offset().top;
+    const portfolio = $('#portfolio').offset().top;
 
     const offsetAbout = about / 2 + 0;
     const offsetSkills = (skills - about) / 2 + about;
+    const offsetPortfolio = (portfolio - skills) / 2 + skills;
     var scrollPosition = window.scrollY + 64;
-    if (scrollPosition >= 0 && scrollPosition < offsetAbout) {
+
+    if ($(window).scrollTop() + $(window).height() === $(document).height()) {
+      this.props.onSelectedScroll('5', true);
+    } else if (scrollPosition >= 0 && scrollPosition < offsetAbout) {
       this.props.onSelectedScroll('1', true);
     } else if (scrollPosition >= offsetAbout && scrollPosition < offsetSkills) {
       this.props.onSelectedScroll('2', true);
-    } else if (scrollPosition >= offsetSkills) {
+    } else if (
+      scrollPosition >= offsetSkills &&
+      scrollPosition < offsetPortfolio
+    ) {
       this.props.onSelectedScroll('3', true);
+    } else if (scrollPosition >= offsetPortfolio) {
+      this.props.onSelectedScroll('4', true);
     }
   };
   render() {

@@ -1,0 +1,11 @@
+.Portfolio {
+    background-color: #0b132b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 64px;
+    padding-bottom: 64px;
+    min-height: 100vh;
+  }

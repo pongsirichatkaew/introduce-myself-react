@@ -1,4 +1,5 @@
 .Navbar {
+    display: block;
     position: fixed;
     font-size: 0.8em;
     top: 0%;
@@ -10,3 +11,42 @@
     border: none;
     z-index: 1;
 }
+
+.Sidebar {
+    display: none;
+}
+.SidebarItem {
+    display: none;
+}
+
+@media(max-width: 600px){
+    .Navbar {
+        display: none;
+    }
+
+    .Sidebar {
+        display: block;
+        position: fixed;
+        font-size: 0.8em;
+        top: 0%;
+        width: 100%;
+        color: white;
+        background-color: #0B132B;
+        line-height: 64px;
+        border: none;
+        z-index: 1;
+    }
+    .SidebarItem {
+        display: block;
+        position: fixed;
+        font-size: 0.8em;
+        top: 64px;
+        width: 100%;
+        color: white;
+        background-color: #0B132B;
+        line-height: 64px;
+        border: none;
+        z-index: 1;
+    }
+    
+  }
