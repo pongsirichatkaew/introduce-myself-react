@@ -56,7 +56,7 @@ class MainPage extends Component {
   };
 
   resumeClickedHandler = () => {
-    window.open('http://localhost:3000/resume', '_blank');
+    window.open('http://203.150.243.73:8000/resume', '_blank');
   };
   render() {
     return (

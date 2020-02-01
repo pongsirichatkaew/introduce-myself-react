@@ -31,7 +31,7 @@ library.add(faUniversity);
 library.add(faSchool);
 
 const resume = props => {
-  //   window.print();
+  window.print();
   return (
     <div className={classes.page}>
       <div className={classes.flexContainer}>
