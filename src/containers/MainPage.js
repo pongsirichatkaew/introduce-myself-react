@@ -37,9 +37,9 @@ class MainPage extends Component {
       }
     ]
   };
-  componentDidUpdate() {
-    console.log(`[MainPage] rendering`);
-  }
+  // componentDidUpdate() {
+  //   console.log(`[MainPage] rendering`);
+  // }
   githubClickedHandler = () => {
     window.open('https://github.com/pongsirichatkaew/', '_blank');
   };

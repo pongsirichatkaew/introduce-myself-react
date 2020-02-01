@@ -5,6 +5,14 @@
   min-height: 100vh;
 }
 
+.Center {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 .CenterCard {
   display: flex;
   flex-direction: row;

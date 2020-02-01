@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import classes from './Portfolio.module.css';
 import Card from '../../UI/Card/Card';
-import { Row, Col, Button } from 'antd';
-const ButtonGroup = Button.Group;
+import { Row, Col } from 'antd';
+import srcReact from '../../../assets/images/react.png';
+import srcVue from '../../../assets/images/vue.png';
+import srcFlask from '../../../assets/images/flask.png';
+import Modal from '../../UI/Modal/Modal';
+// const ButtonGroup = Button.Group;
 
 class Portfolio extends Component {
   state = {
@@ -22,12 +26,13 @@ class Portfolio extends Component {
             type: 'backend'
           }
         ],
+        image: srcVue,
         show: false
       },
       {
         name: 'Booking room',
         description:
-          'Booking room web application is a web application for booking a room and prevent time collision',
+          'Booking room web application is a web application for booking a room and prevent time collision.This application only used in mobile(not responsive) and cooperate with One Chat(internal chat application)',
         tags: ['Python', 'Flask', 'SQL'],
         url: [
           {
@@ -35,7 +40,16 @@ class Portfolio extends Component {
             type: 'backend'
           }
         ],
-        show: false
+        image: srcFlask,
+        show: false,
+        demo: [
+          {
+            name: 'bookingroom',
+            url: 'http://203.150.243.73:8001/room/62107/1564043430',
+            description:
+              'Please demo it on mobile or use Toggle device toolbar from Chrome '
+          }
+        ]
       },
       {
         name: 'KPI Online',
@@ -52,7 +66,29 @@ class Portfolio extends Component {
             type: 'backend'
           }
         ],
-        show: false
+        image: srcVue,
+        show: false,
+        demo: [
+          {
+            name: 'Assessor',
+            url:
+              'http://203.150.243.73:8002/accessor/a129f104-d8a4-4f3a-aaf0-a123fa185060',
+            description: 'for assessor to check his/her staff '
+          },
+          {
+            name: 'KpiOnline',
+            url:
+              'http://203.150.243.73:8002/kpionline/a129f104-d8a4-4f3a-aaf0-a123fa185060',
+            description: 'for assessor to evaluation his/her staff '
+          },
+          {
+            name: 'Uploadfile',
+            url:
+              'http://203.150.243.73:8002/kpiupload/a129f104-d8a4-4f3a-aaf0-a123fa185060',
+            description:
+              'for assessor to upload present file for his/her staff that have to present'
+          }
+        ]
       },
       {
         name: 'Introduce myself',
@@ -60,20 +96,45 @@ class Portfolio extends Component {
         tags: ['JavaScript', 'React'],
         url: [
           {
-            link: 'https://github.com/pongsirichatkaew/introduce-myself-app',
+            link: 'https://github.com/pongsirichatkaew/introduce-myself-react',
             type: 'frontend'
           }
         ],
-        show: false
+        image: srcReact,
+        show: false,
+        demo: [
+          {
+            name: 'pongsirichatkaew',
+            url: 'http://203.150.243.73:8000'
+          }
+        ]
       }
-    ]
+    ],
+    modalVisible: false,
+    portSelected: {}
   };
-  componentDidUpdate() {
-    console.log(`[Portfolio] rendering`);
-  }
-  shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.animated.portfolio !== this.props.animated.portfolio;
-  }
+  // componentDidUpdate() {
+  //   console.log(`[Portfolio] rendering`);
+  // }
+  showModal = port => {
+    const updatedPortfolioLists = [...this.state.portfolioLists];
+    const indexPortfolioLists = updatedPortfolioLists.findIndex(p => {
+      return port.name === p.name;
+    });
+    this.setState({
+      modalVisible: true,
+      portSelected: updatedPortfolioLists[indexPortfolioLists]
+    });
+  };
+
+  handleOk = () => {
+    this.setState({ modalVisible: false });
+  };
+
+  handleCancel = () => {
+    this.setState({ modalVisible: false });
+  };
+
   onMouseEnterHandler = port => {
     const updatedPortfolioLists = [...this.state.portfolioLists];
     const indexPortfolioLists = updatedPortfolioLists.findIndex(p => {
@@ -91,6 +152,9 @@ class Portfolio extends Component {
     updatedPortfolioLists[indexPortfolioLists].show = false;
     this.setState({ portfolioLists: updatedPortfolioLists });
   };
+  githubClickedHandler = url => {
+    window.open(url, '_blank');
+  };
   render() {
     const arrGroup = [];
     let portfolioLists = this.state.portfolioLists.map(port => {
@@ -99,7 +163,7 @@ class Portfolio extends Component {
         <Col
           key={port.name}
           className={classes.CenterCard}
-          style={{ paddingTop: '16px', paddingBottom: '16px' }}
+          style={{ padding: '16px' }}
           xs={24}
           sm={24}
           md={12}
@@ -107,30 +171,37 @@ class Portfolio extends Component {
           xl={6}
           onMouseEnter={() => this.onMouseEnterHandler(port)}
           onMouseLeave={() => this.onMouseLeaveHandler(port)}
+          onClick={() => this.showModal(port)}
         >
-          <Card animated={port.show} name={port.name} />
+          <Card srcImage={port.image} animated={port.show} name={port.name} />
         </Col>
       );
     });
 
-    const BtnGroup = [
-      <Button size={'large'} key={'all'}>
-        All
-      </Button>
-    ];
-    const newTags = new Set(arrGroup);
-    newTags.forEach(tag => {
-      BtnGroup.push(
-        <Button size={'large'} key={tag}>
-          {tag}
-        </Button>
-      );
-    });
+    // const BtnGroup = [
+    //   <Button size={'large'} key={'all'}>
+    //     All
+    //   </Button>
+    // ];
+    // const newTags = new Set(arrGroup);
+    // newTags.forEach(tag => {
+    //   BtnGroup.push(
+    //     <Button size={'large'} key={tag}>
+    //       {tag}
+    //     </Button>
+    //   );
+    // });
     return (
       <div id="portfolio" className={classes.Portfolio}>
         <p className={classes.TextHeader}>Portfolio</p>
-        <ButtonGroup className={classes.BtnGroup}>{BtnGroup}</ButtonGroup>
-
+        <Modal
+          modalVisible={this.state.modalVisible}
+          handleOk={this.handleOk}
+          handleCancel={this.handleCancel}
+          port={this.state.portSelected}
+          githubClicked={this.githubClickedHandler}
+        />
+        {/* <ButtonGroup className={classes.BtnGroup}>{BtnGroup}</ButtonGroup> */}
         <Row type="flex" align={'middle'} justify={'space-around'}>
           {portfolioLists}
         </Row>

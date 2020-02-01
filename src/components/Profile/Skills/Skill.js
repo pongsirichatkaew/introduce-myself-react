@@ -4,9 +4,9 @@ import classes from './Skill.module.css';
 import { Row, Col, Progress } from 'antd';
 
 class Skills extends Component {
-  componentDidUpdate() {
-    console.log(`[SKills] rendering`);
-  }
+  // componentDidUpdate() {
+  //   console.log(`[SKills] rendering`);
+  // }
   shouldComponentUpdate(nextProps, nextState) {
     return nextProps.animated.skills !== this.props.animated.skills;
   }

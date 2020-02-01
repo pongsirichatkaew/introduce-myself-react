@@ -5,9 +5,9 @@ import srcImage from '../../../assets/images/images.png';
 import { Button, Row, Col } from 'antd';
 
 class MainPage extends Component {
-  componentDidUpdate() {
-    console.log(`[MainPage] rendering`);
-  }
+  // componentDidUpdate() {
+  //   console.log(`[MainPage] rendering`);
+  // }
 
   shouldComponentUpdate(nextProps, nextState) {
     return nextProps.animated.main !== this.props.animated.main;

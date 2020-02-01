@@ -3,9 +3,9 @@ import classes from './Aboutme.module.css';
 import { Row, Col } from 'antd';
 import Experience from '../Experience/Experinece';
 class Aboutme extends Component {
-  componentDidUpdate() {
-    console.log(`[Aboutme] rendering`);
-  }
+  // componentDidUpdate() {
+  //   console.log(`[Aboutme] rendering`);
+  // }
   shouldComponentUpdate(nextProps, nextState) {
     return nextProps.animated.about !== this.props.animated.about;
   }

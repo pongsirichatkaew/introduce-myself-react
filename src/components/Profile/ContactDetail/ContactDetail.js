@@ -20,7 +20,7 @@ library.add(faMobileAlt);
 library.add(faPaperPlane);
 
 const contact = props => {
-  console.log(props.contactDetail);
+  // console.log(props.contactDetail);
   return (
     <div id="contact" className={classes.Container}>
       <Row type="flex">
