@@ -67,11 +67,12 @@ class MainPage extends Component {
               <Col span={24} style={{ marginTop: '16px' }}>
                 <Button
                   className={classes.ButtonCV}
+                  onClick={this.props.resumeClicked}
                   type="primary"
                   icon="download"
                   size="large"
                 >
-                  DOWNLOAD MY CV
+                  DOWNLOAD MY RESUME
                 </Button>
               </Col>
             </Row>

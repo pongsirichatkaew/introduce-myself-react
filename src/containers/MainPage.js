@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import classes from './MainPage.module.css';
 import { connect } from 'react-redux';
-
+import { withRouter } from 'react-router-dom';
 import MainProfile from '../components/Profile/MainProfile/MainProfile';
 import Aboutme from '../components/Profile/Aboutme/Aboutme';
 import Skills from '../components/Profile/Skills/Skill';
@@ -54,6 +54,10 @@ class MainPage extends Component {
   mailClickedHandler = () => {
     window.open('mailto://pongsiri.cha@hotmail.com', '_blank');
   };
+
+  resumeClickedHandler = () => {
+    window.open('http://localhost:3000/resume', '_blank');
+  };
   render() {
     return (
       <div className={classes.MainPage}>
@@ -61,6 +65,7 @@ class MainPage extends Component {
           githubClicked={this.githubClickedHandler}
           facebookClicked={this.facebookClickedHandler}
           mailClicked={this.mailClickedHandler}
+          resumeClicked={this.resumeClickedHandler}
           animated={this.props.animated}
         />
         <Aboutme
@@ -82,4 +87,4 @@ const mapStateToProps = state => {
     animated: state.navbar.animated
   };
 };
-export default connect(mapStateToProps, null)(MainPage);
+export default withRouter(connect(mapStateToProps, null)(MainPage));
