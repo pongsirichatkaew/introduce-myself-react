@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './Resume.module.css';
 import { Progress } from 'antd';
 
-import srcProfile from '../../../assets/images/profile.jpg';
+import srcProfile from '../../../assets/images/me.jpg';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
